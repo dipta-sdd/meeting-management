@@ -6,10 +6,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('login', function () {
-    return view('login');
+    return file_get_contents(public_path('login.html'));
 });
 Route::get('signup', function () {
-    return view('signup');
+    return file_get_contents(public_path('regi.html'));
 });
 Route::get('logout', function (Illuminate\Http\Request  $request) {
     $request->session()->invalidate();

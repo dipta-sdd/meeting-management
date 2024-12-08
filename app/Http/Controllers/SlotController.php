@@ -12,15 +12,38 @@ class SlotController extends Controller
         $request->validate([
             'start' => 'required',
             'end' => 'required',
-            'date' => 'required'
         ]);
+        // check if slot is mergeble with previous slot
+        $slot = slot::where('start', '<=', $request->input('start'))
+            ->where('end', '>=', $request->input('start'))
+            ->where('host', auth()->user()->id)
+            ->first();
+
+        if ($slot) {
+            if ($request->input('end') > $slot->end)
+                $slot->end = $request->input('end');
+            $slot->save(); // update existing slot and returning it
+            return response()->json($slot);
+        } else {
+            $slot = slot::where('start', '<=', $request->input('end'))
+                ->where('end', '>=', $request->input('end'))
+                ->where('host', auth()->user()->id)
+                ->first();
+
+            if ($slot) {
+                if ($request->input('start') < $slot->start)
+                    $slot->start = $request->input('start');
+                $slot->save(); // update existing slot and returning it
+                return response()->json($slot);
+            }
+        }
 
         $slot = new slot([
-            'date' => $request->input('date'),
             'start' => $request->input('start'),
             'end' => $request->input('end'),
             'host' => auth()->user()->id
         ]);
+
         $slot->save();
 
         return response()->json($slot);

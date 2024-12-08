@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <!-- Font Awosome -->
+
+        <link rel="stylesheet" data-purpose="Layout StyleSheet" title="Web Awesome" href="/css/app-wa-8106c2e05ae3cd7bfbb686f33d73a923.css?vsn=d" />
+
+        <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css" />
+
+        <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-thin.css" />
+
+        <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-solid.css" />
+
+        <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-regular.css" />
+
+        <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-light.css" />
+
+        <!-- Font link -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+
+        <!-- <link rel="stylesheet" href="css/citizen__pass.css" /> -->
+        <link rel="shortcut icon" href="./images/icons8-good-quality-48.png" type="image/x-icon" />
+        <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css" />
+
+        <title>Change Password</title>
+    </head>
+    <style>
+        /* Resetting default browser styles */
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+}
+/* Box sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li,
+ol,
+ul {
+    list-style: none;
+}
+
+/* Global Typography */
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+/* Links */
+
+a {
+    text-decoration: none;
+}
+
+:root {
+    --blue-colour: #1c1e53;
+    --gray-colour: #f4f6fc;
+    --text-colur: #282938;
+    --white-colour: #ffffff;
+    --yellow-colour: #fcd980;
+
+    --coco-colur: #ed9455;
+    --light-coco-colur: #ffbb70;
+    --more-light-coco-colur: #ffec9e;
+}
+video {
+    width: 100%;
+}
+
+/* ============================= Custom CSS ==================== */
+
+/* ============================= Navbar CSS ==================== */
+
+.customNav {
+    padding: 10px 0;
+    background-color: var(--blue-colour);
+    align-items: center;
+}
+.navbar__logo {
+    width: 300px;
+    height: auto;
+    text-align: left;
+}
+.customItem {
+    padding: 20px 10px;
+    font-size: 20px;
+    color: var(--blue-colour);
+    transition: ease-in-out 0.1s;
+}
+.custombtn {
+    padding: 7px 17px;
+    margin: 0 4px;
+    background-color: var(--blue-colour);
+    border: 2px solid var(--gray-colour);
+    outline: none;
+    border-radius: 15px;
+    transition: ease-in-out 0.2s;
+    color: white;
+    /* margin-bottom: 20px; */
+}
+.custombtn:hover {
+    background-color: var(--more-light-coco-colur);
+    color: black;
+    border: 2px solid --gray-colour;
+}
+/* ============================= Navbar CSS ==================== */
+
+/* =============================  Change password CSS ==================== */
+
+#change__pass {
+    padding: 80px 0;
+    background-image: url(./photos/back.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.main {
+    background-color: var(--gray-colour);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 40px 45px;
+    transition: transform 0.2s;
+    width: 450px;
+    text-align: center;
+}
+
+input {
+    display: block;
+    width: 100%;
+    margin-bottom: 25px;
+    padding: 12px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    background-color: #4caf50;
+    width: 100%;
+    font-size: 18px;
+}
+
+.wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+.input-with-icon {
+    position: relative;
+}
+
+.input-with-icon input {
+    padding-left: 40px;
+}
+
+.input-with-icon i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.move__center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ============================= change__pass CSS ==================== */
+
+/* ================================= footer Part ===================== */
+
+#footerpart {
+    background-color: var(--blue-colour);
+    padding: 50px 50px 30px 50px;
+}
+#footerbottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+.footerTopLeft__p {
+    font-size: 16px;
+    font-weight: 500;
+}
+.footerTopBottom h3 {
+    font-size: 18px;
+    font-weight: 500;
+}
+.footerTopBottom a {
+    color: #1c1e53;
+    margin-top: 20px;
+    font-weight: 400;
+    font-size: 14px;
+}
+.footer__logo {
+    height: 100px;
+}
+.footerLeftBottom {
+    background-color: var(--yellow-colour);
+    margin-top: 70px;
+    padding: 15px 10px;
+}
+.footerRight__h3 {
+    font-size: 48px;
+    font-weight: 600;
+}
+.footerRight__p {
+    font-size: 16px;
+    font-weight: 400;
+}
+.icons {
+    margin-top: 10px;
+}
+.icons a {
+    padding: 10px;
+    color: white;
+}
+
+/* ================================= footer Part ===================== */
+
+    </style>
+    <body>
+        <!-- ========================= Navbar =========================== -->
+
+        <nav class="navbar navbar-expand-lg customNav">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <h2 class="text-white text-left">Meeting Management</h2>
+                </a>
+    
+                <div class="btn-group">
+                    <button id="username-btn" style="text-transform: capitalize;" name="username" type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <!-- This will be dynamically updated with JavaScript -->
+                        
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="citizen_profile.php">Profile</a></li>
+                        <li><a class="dropdown-item" href="host_change_pass.html">Change Password</a></li>
+                        <li><a class="dropdown-item" href="host_update.html">Update</a></li>
+                        <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- ========================= Navbar =========================== -->
+
+        <!-- ========================= Change password =========================== -->
+
+        <section id="change__pass">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 move__center">
+                        <div class="main">
+                            <form class="mt-4">
+                                <div class="input-with-icon">
+                                    <input type="password" id="old_password" name="old_password" placeholder="Enter Old Password" required />
+                                    <i class="fa-solid fa-lock"></i>
+                                </div>
+
+                                <div class="input-with-icon">
+                                    <input type="password" id="new_password" name="new_password" placeholder="Enter New Password" required />
+                                    <i class="fa-solid fa-lock"></i>
+                                </div>
+
+                                <div class="input-with-icon">
+                                    <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm New Password" required />
+                                    <i class="fa-solid fa-lock"></i>
+                                </div>
+
+                                <div class="wrap">
+                                    <button type="submit" class="custombtn w-100">Change Password</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- =========================  Change password =========================== -->
+
+        <!-- ======================== footer Part =========================== -->
+
+        <footer id="footerpart">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="footerTopLeft">
+                            <picture>
+                                <img src="./images/2.png" alt class="footer__logo" />
+                            </picture>
+                            <p class="mt-4 text-white footerTopLeft__p">We are always open to discuss and improve your online presence.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="footerRight offset-lg-1">
+                            <h3 class="footerRight__h3 text-white">Lets Digitalize!</h3>
+                            <p class="footerRight__p text-white my-3">“The biggest part of our digital transformation is changing the way we think.” — Simeon Preston.</p>
+                            <div class="icons text-white">
+                                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- ======================== footer Part =========================== -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+    // Fetch the JWT token from localStorage
+    const token = localStorage.getItem('jwt_token');
+
+    if (token) {
+        // Call the 'me' endpoint
+        fetch('/api/auth/me', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data && data.name) {
+                    // Update the dropdown button with the username
+                    const dropdownButton = document.getElementById('username-btn');
+                    dropdownButton.textContent = data.name;
+                } else {
+                    console.error('Unable to fetch user data.');
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching user data:', error);
+            });
+    } else {
+        console.error('No token found. Please log in.');
+    }
+});
+
+
+
+    document.querySelector("form").addEventListener("submit", function (e) {
+        e.preventDefault(); // Prevent the default form submission
+
+        // Get the JWT token from localStorage
+        const token = localStorage.getItem("jwt_token");
+        if (!token) {
+            alert("You must be logged in to change your password.");
+            return;
+        }
+
+        // Get input values
+        const oldPassword = document.getElementById("old_password").value;
+        const newPassword = document.getElementById("new_password").value;
+        const confirmPassword = document.getElementById("confirm_password").value;
+        //alert();
+        // Prepare the API request
+        $.ajax({
+    type: "PUT",
+    url: "/api/auth/change-password",
+    data: JSON.stringify({
+        current_password: oldPassword,
+        new_password: newPassword,
+        new_password_confirmation: confirmPassword,
+    }),
+    headers: {
+        "Authorization": `Bearer ${token}`,
+        "Content-Type": "application/json",
+    },
+    success: function (response) {
+        alert("Password changed successfully!");
+    },
+    error: function (xhr) {
+        alert("Error: " + xhr.responseJSON.message);
+    }
+});
+    });
+
+
+     </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+      </body>
+</html>

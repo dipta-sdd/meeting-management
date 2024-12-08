@@ -13,7 +13,7 @@ return new class extends Migration
     {
         //
         Schema::table('slots', function (Blueprint $table) {
-            $table->foreignId('booking_id')->constrained('bookings')->onDelete('cascade');
+            $table->foreignId('booking_id')->nullable()->constrained('bookings')->onDelete('cascade');
         });
     }
 

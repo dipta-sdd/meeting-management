@@ -10,7 +10,6 @@ class slot extends Model
     protected $fillable = [
         'start',
         'end',
-        'date',
         'host',
         'booking_id'
     ];

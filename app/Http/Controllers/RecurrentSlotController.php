@@ -13,7 +13,6 @@ class RecurrentSlotController extends Controller
         $data = $request->validate([
             'start' => 'required',
             'end' => 'required',
-            'day' => 'required',
         ]);
         $data['host'] = auth()->user()->id;
         $slot = recurrent::create($data);

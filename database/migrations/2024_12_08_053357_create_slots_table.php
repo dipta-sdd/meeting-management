@@ -13,9 +13,8 @@ return new class extends Migration
     {
         Schema::create('slots', function (Blueprint $table) {
             $table->id();
-            $table->time('start');
-            $table->time('end');
-            $table->date('date');
+            $table->timestamp('start');
+            $table->timestamp('end');
             $table->foreignId('host')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
