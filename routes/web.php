@@ -19,3 +19,9 @@ Route::get('logout', function (Illuminate\Http\Request  $request) {
     $request->session()->regenerateToken();
     return view('welcome');
 });
+
+// // Route for the host reslot HTML page
+// Route::get('/host/reslot', function () {
+//     return response()->file(public_path('host_reslot.html'));
+// })->middleware('auth'); // Ensure only authenticated users can access this route
+

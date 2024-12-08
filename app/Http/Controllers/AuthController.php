@@ -161,18 +161,18 @@ class AuthController extends Controller
     {
         return Auth::guard();
     }
-    public function getProfile(Request $request)
-    {
-        $userId = auth()->id(); // Get the logged-in user's ID
-        $user = User::find($userId); // Fetch the user data
+    // public function getProfile(Request $request)
+    // {
+    //     $userId = auth()->id(); // Get the logged-in user's ID
+    //     $user = User::find($userId); // Fetch the user data
 
-        return response()->json([
-            'name' => $user->name,
-            'email' => $user->email,
-            'created_at' => $user->created_at->format('Y-m-d H:i:s'),
-            'timezone' => $user->timezone,
-        ]);
-    }
+    //     return response()->json([
+    //         'name' => $user->name,
+    //         'email' => $user->email,
+    //         'created_at' => $user->created_at->format('Y-m-d H:i:s'),
+    //         'timezone' => $user->timezone,
+    //     ]);
+    // }
 
     // Update user profile
     public function updateProfile(Request $request)
@@ -191,7 +191,8 @@ class AuthController extends Controller
             'email' => $request->email,
             'timezone' => $request->timezone,
         ]);
-
+        $user->save();
+        // dd(json_encode($user));
         return response()->json(['message' => 'Profile updated successfully.']);
     }
 }

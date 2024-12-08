@@ -13,15 +13,27 @@ class RecurrentSlotController extends Controller
         $data = $request->validate([
             'start' => 'required',
             'end' => 'required',
+            'days' => 'required|array',
+            'days.*' => 'string',
         ]);
         $data['host'] = auth()->user()->id;
-        $slot = recurrent::create($data);
-        return response()->json($slot);
+        $slots = [];
+        foreach ($data['days'] as $day) {
+            $slots[] = recurrent::create([
+                'day' => $day,
+                'start' => $data['start'],
+                'end' => $data['end'],
+                'host' => $data['host'],
+            ]);
+            // dd(json_encode($slots));
+
+        }
+        return response()->json($slots);
     }
 
     public function read($id = null)
     {
-        $query = recurrent::selectRaw('recurrents.*, users.name as host_name')
+        $query = recurrent::selectRaw('recurrents.day ,TIME(recurrents.start) as start, TIME(recurrents.end) as end, users.name as host_name')
             ->join('users', 'recurrents.host', '=', 'users.id');
 
         if ($id) {

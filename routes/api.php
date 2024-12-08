@@ -27,8 +27,11 @@ Route::group(
         Route::put('change-password', [AuthController::class, 'changePassword']);
 
 
-        Route::get('/profile', [AuthController::class, 'getProfile']);
-        Route::post('/profile/update', [AuthController::class, 'updateProfile']);
+        // Route::get('profile', [AuthController::class, 'getProfile']);
+        Route::post('update', [AuthController::class, 'updateProfile']);
+        Route::get('/host/reslot', function () {
+            return response()->file(public_path('host_reslot.html'));
+        });
     }
 );
 
@@ -54,7 +57,8 @@ Route::group([
 
 ], function ($router) {
 
-    Route::post('create', [RecurrentSlotController::class, 'create']);
+    Route::post('reslot', [RecurrentSlotController::class, 'create']);
+    Route::get('slots', [RecurrentSlotController::class, 'read']);
     Route::get('read', [RecurrentSlotController::class, 'read']);
     Route::get('read/{id}', [RecurrentSlotController::class, 'read']);
     Route::post('update/{id}', [RecurrentSlotController::class, 'update']);

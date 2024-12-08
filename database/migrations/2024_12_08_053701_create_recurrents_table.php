@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('recurrents', function (Blueprint $table) {
             $table->id();
+            $table->string('day');
             $table->time('start');
             $table->time('end');
             $table->foreignId('host')->constrained('users');
