@@ -25,6 +25,7 @@ Route::group(
         Route::get('me', [AuthController::class, 'me']);
         Route::post('register', [AuthController::class, 'register']);
         Route::put('change-password', [AuthController::class, 'changePassword']);
+        Route::post('logout', [AuthController::class, 'logout']);
 
 
         // Route::get('profile', [AuthController::class, 'getProfile']);
