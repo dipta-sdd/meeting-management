@@ -65,6 +65,7 @@ class AuthController extends Controller
             // Return the JWT token and token type
             return response()->json([
                 'access_token' => $token,
+                'user' => auth()->user(),
                 'token_type' => 'Bearer',
             ]);
         }

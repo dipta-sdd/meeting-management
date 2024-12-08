@@ -49,17 +49,20 @@ class SlotController extends Controller
         return response()->json($slot);
     }
 
-    public function read($id = null)
+    public function read(Request $request, $id = null)
     {
-        $query = slot::selectRaw('slots.*, users.name as host_name')
-            ->join('users', 'slots.host', '=', 'users.id')
-            ->leftJoin('bookings', 'slots.booking_id', '=', 'bookings.id');
+        $query = slot::selectRaw('slots.* ,TIME(start) as startTime, TIME(end) as endTime, users.name as host_name')
+            ->join('users', 'slots.host', '=', 'users.id');
 
         if ($id) {
             $query->where('slots.id', $id);
             $slot = $query->first();
         } else {
             $query->where('slots.host', auth()->user()->id);
+            if ($request->has('start') && $request->has('end')) {
+                $query->whereBetween('slots.start', [$request->input('start'), $request->input('end')])
+                    ->whereBetween('slots.end', [$request->input('start'), $request->input('end')]);
+            }
             $slot = $query->get();
         }
 

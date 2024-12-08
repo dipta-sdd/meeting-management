@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Font Awosome -->
+
+  <link rel="stylesheet" data-purpose="Layout StyleSheet" title="Web Awesome"
+    href="/css/app-wa-8106c2e05ae3cd7bfbb686f33d73a923.css?vsn=d" />
+
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css" />
+
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-thin.css" />
+
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-solid.css" />
+
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-regular.css" />
+
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-light.css" />
+
+  <!-- Font link -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+
+  <link rel="shortcut icon" href="./images/icons8-good-quality-48.png" type="image/x-icon" />
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css" />
+  <style>
+    /* Resetting default browser styles */
+    html,
+    body,
+    div,
+    span,
+    applet,
+    object,
+    iframe,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    blockquote,
+    pre,
+    a,
+    abbr,
+    acronym,
+    address,
+    big,
+    cite,
+    code,
+    del,
+    dfn,
+    em,
+    ins,
+    kbd,
+    q,
+    s,
+    samp,
+    small,
+    strike,
+    strong,
+    sub,
+    sup,
+    tt,
+    var,
+    b,
+    u,
+    i,
+    center,
+    dl,
+    dt,
+    dd,
+    ol,
+    ul,
+    li,
+    fieldset,
+    form,
+    label,
+    legend,
+    table,
+    caption,
+    tbody,
+    tfoot,
+    thead,
+    tr,
+    th,
+    td,
+    article,
+    aside,
+    canvas,
+    details,
+    embed,
+    figure,
+    figcaption,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    output,
+    ruby,
+    section,
+    summary,
+    time,
+    mark,
+    audio,
+    video {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Box sizing */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    li,
+    ol,
+    ul {
+      list-style: none;
+    }
+
+    /* Global Typography */
+    body {
+      font-family: "Poppins", sans-serif;
+      background-image: url('./photos/back.jpg');
+      /* Path to your image */
+      background-size: cover;
+      /* Make the image cover the entire area */
+      background-position: center;
+      /* Center the image */
+      background-attachment: fixed;
+      /* Make the background fixed when scrolling */
+      background-repeat: no-repeat;
+      /* Prevent repetition */
+    }
+
+    /* Links */
+    a {
+      text-decoration: none;
+    }
+
+    :root {
+      --blue-colour: #1c1e53;
+      --gray-colour: #f4f6fc;
+      --text-colur: #282938;
+      --white-colour: #ffffff;
+      --yellow-colour: #fcd980;
+      --coco-colur: #ed9455;
+      --light-coco-colur: #ffbb70;
+      --more-light-coco-colur: #ffec9e;
+    }
+
+    video {
+      width: 100%;
+    }
+
+    /* ============================= Custom CSS ==================== */
+    /* ============================= Navbar CSS ==================== */
+    .customNav {
+      padding: 1s0px 0;
+      background-color: var(--blue-colour);
+      align-items: center;
+    }
+
+    .navbar__logo {
+      width: 300px;
+      height: auto;
+      text-align: left;
+    }
+
+    .customItem {
+      padding: 20px 10px;
+      font-size: 20px;
+      color: var(--blue-colour);
+      transition: ease-in-out 0.1s;
+    }
+
+    .custombtn {
+      padding: 7px 17px;
+      margin: 0 4px;
+      background-color: var(--blue-colour);
+      border: 2px solid var(--gray-colour);
+      outline: none;
+      border-radius: 15px;
+      transition: ease-in-out 0.2s;
+      color: white;
+      /* margin-bottom: 20px; */
+    }
+
+    .custombtn:hover {
+      background-color: var(--more-light-coco-colur);
+      color: black;
+      border: 2px solid --gray-colour;
+    }
+
+    /* ============================= Navbar CSS ==================== */
+    /* ============================= Profile details CSS ==================== */
+    #login__part {
+      padding: 20px 0;
+      background-image: url(./photos/back.jpg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .labels {
+      font-size: 15px;
+    }
+
+    /* ============================= Profile details CSS ==================== */
+    /* ================================= footer Part ===================== */
+    #footerpart {
+      background-color: var(--blue-colour);
+      padding: 50px 50px 30px 50px;
+    }
+
+    #footerbottom {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    .footerTopLeft__p {
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .footerTopBottom h3 {
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    .footerTopBottom a {
+      color: #1c1e53;
+      margin-top: 20px;
+      font-weight: 400;
+      font-size: 14px;
+    }
+
+    .footer__logo {
+      height: 100px;
+    }
+
+    .footerLeftBottom {
+      background-color: var(--yellow-colour);
+      margin-top: 70px;
+      padding: 15px 10px;
+    }
+
+    .footerRight__h3 {
+      font-size: 48px;
+      font-weight: 600;
+    }
+
+    .footerRight__p {
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+    .icons {
+      margin-top: 10px;
+    }
+
+    .icons a {
+      padding: 10px;
+      color: white;
+    }
+
+    #calendar {
+      max-width: 700px;
+      margin: 40px auto;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg customNav">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <h2 class="text-white text-left">Meeting Management</h2>
+      </a>
+      <div class="btn-group">
+        <button type="button" class="btn btn-success" data-bs-toggle="dropdown" aria-expanded="false"> Back </button>
+      </div>
+    </div>s
+  </nav>
+  <!-- Modal for Slot Creation -->
+  <div class="modal fade" id="slotModal" tabindex="-1" aria-labelledby="slotModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="slotModalLabel">Create Time Slot</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Form for creating a new slot -->
+          <form id="slotForm">
+            <div class="mb-3">
+              <label for="slotDate" class="form-label">Date</label>
+              <input type="text" class="form-control" id="slotDate" disabled>
+            </div>
+            <div class="mb-3">
+              <label for="slotStartTime" class="form-label">Start Time</label>
+              <input type="time" class="form-control" id="slotStartTime" required>
+            </div>
+            <div class="mb-3">
+              <label for="slotEndTime" class="form-label">End Time</label>
+              <input type="time" class="form-control" id="slotEndTime" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Create Slot</button>
+          </form>
+
+          <!-- Divider -->
+          <hr>
+
+          <!-- Section to display existing bookings -->
+          <h6>Bookings for <span id="selected_date"></span></h6><br>
+          <div id="bookingsList">
+            <!-- Bookings will be dynamically appended here -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="text-center mt-4">Booking Calendar</h2>
+  <div id="calendar" class="bg-white p-5"></div>
+
+
+  <!-- Booked Slots Section -->
+  <section id="bookedSlotsSection" style="margin: 40px auto; max-width: 900px;" class="bg-white p-4">
+    <h3 style="text-align: center; margin-bottom: 20px;">Booked Slots for <span id="currentDate">Today</span></h3>
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Start Time</th>
+            <th scope="col">End Time</th>
+          </tr>
+        </thead>
+        <tbody id="slotsList">
+          <!-- Example data rows -->
+          <tr>
+            <td>2024-12-08</td>
+            <td>10:00 AM</td>
+            <td>11:00 AM</td>
+          </tr>
+          <tr>
+            <td>2024-12-08</td>
+            <td>01:00 PM</td>
+            <td>02:30 PM</td>
+          </tr>
+          <tr>
+            <td>2024-12-08</td>
+            <td>03:00 PM</td>
+            <td>04:00 PM</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+
+
+  <footer id="footerpart">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5">
+          <div class="footerTopLeft">
+            <picture>
+              <img src="./images/2.png" alt class="footer__logo" />
+            </picture>
+            <p class="mt-4 text-white footerTopLeft__p">We are always open to discuss and improve your online presence.
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="footerRight offset-lg-1">
+            <h3 class="footerRight__h3 text-white">Lets Digitalize!</h3>
+            <p class="footerRight__p text-white my-3">“The biggest part of our digital transformation is changing the
+              way we think.” — Simeon Preston.</p>
+            <div class="icons text-white">
+              <a href="#">
+                <i class="fa-brands fa-facebook"></i>
+              </a>
+              <a href="#">
+                <i class="fa-brands fa-twitter"></i>
+              </a>
+              <a href="#">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a href="#">
+                <i class="fa-brands fa-linkedin"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous"></script>
+  <!-- FullCalendar Script -->
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+  <!-- Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var calendarEl = document.getElementById('calendar');
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        selectable: true,
+        dateClick: function (info) {
+          // Set the selected date in the form
+          document.getElementById('slotDate').value = info.dateStr;
+          // Show the modal to create a time slot
+          // var myModal = new bootstrap.Modal(document.getElementById('slotModal'));
+          // myModal.show();
+          openSlotModal(info.dateStr);
+        }
+      });
+      calendar.render();
+      // Handle form submission
+      document.getElementById('slotForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+        // Get the selected date and time from the form
+        const selectedDate = document.getElementById('slotDate').value;
+        const selectedTimeStart = document.getElementById('slotStartTime').value;
+        const selectedTimeEnd = document.getElementById('slotEndTime').value;
+        // Get the user's selected time zone from local storage
+        const selectedTimezone = localStorage.getItem('time_zone') || Intl.DateTimeFormat().resolvedOptions().timeZone;
+        start = getUtcTime(selectedDate, selectedTimeStart, selectedTimezone);
+        end = getUtcTime(selectedDate, selectedTimeEnd, selectedTimezone);
+        console.log(start, end);
+        $.ajax({
+          type: "post",
+          url: "/api/slots/create",
+          data: {
+            start: start,
+            end: end
+          },
+          headers: {
+            "accept": "application/json",
+            "Authorization": `Bearer ${localStorage.getItem('jwt_token')}`,
+          },
+          success: function (response) {
+            var myModal = bootstrap.Modal.getInstance(document.getElementById('slotModal'));
+            myModal.hide();
+          }
+        });
+
+        // Close the modal
+
+        // Add the event to the calendar
+        // calendar.addEvent({
+        //   title: description,
+        //   start: selectedDate + 'T' + selectedTime,
+        //   description: description,
+        // });
+      });
+    });
+
+
+    // Sample data for existing bookings
+    const bookings = [
+      { id: 1, date: "2024-12-08", startTime: "10:00", endTime: "12:00" },
+      { id: 2, date: "2024-12-08", startTime: "13:00", endTime: "15:00" },
+      { id: 3, date: "2024-12-09", startTime: "09:00", endTime: "11:00" },
+    ];
+
+    // Function to open the modal and populate bookings for the selected date
+    function openSlotModal(selectedDate) {
+
+      const slotDateField = document.getElementById("slotDate");
+      const bookingsList = document.getElementById("bookingsList");
+      const selectedDateDisplay = document.getElementById("selected_date");
+      const time_zone = localStorage.getItem('time_zone') || Intl.DateTimeFormat().resolvedOptions().timeZone;
+      // Set the date in the modal
+      slotDateField.value = selectedDate;
+      selectedDateDisplay.textContent = selectedDate;
+
+      // Clear the bookings list
+      bookingsList.innerHTML = "";
+      $.ajax({
+        type: "get",
+        url: "/api/slots/read",
+        data: {
+          start: getUtcTime(selectedDate, "00:00", time_zone),
+          end: getUtcTime(selectedDate, "23:59", time_zone)
+        },
+        headers: {
+          "accept": "application/json",
+          "Authorization": `Bearer ${localStorage.getItem('jwt_token')}`,
+        },
+        success: function (res) {
+          if (res.length > 0) {
+            res.forEach((booking) => {
+              const bookingDiv = document.createElement("div");
+              bookingDiv.classList.add("booking-item", "d-flex", "justify-content-between", "align-items-center", "mb-2");
+
+              bookingDiv.innerHTML = `
+                <div>
+                    <strong>${booking.startTime} - ${booking.endTime}</strong>
+                </div>
+                <div>
+                     
+                    <button class="btn btn-sm btn-danger" onclick="deleteBooking(${booking.id})">Delete</button>
+                </div>
+            `;
+              // <button class="btn btn-sm btn-warning me-2" onclick="editBooking(${booking.id})">Edit</button>
+
+              bookingsList.appendChild(bookingDiv);
+            });
+          } else {
+            bookingsList.innerHTML = "<p>No bookings available for this day.</p>";
+          }
+        }
+      });
+      // Filter bookings for the selected date
+      // const filteredBookings = bookings.filter((booking) => booking.date === selectedDate);
+
+      // Populate the bookings list
+
+
+      // Show the modal
+      const slotModal = new bootstrap.Modal(document.getElementById("slotModal"));
+      slotModal.show();
+    }
+
+    // Placeholder function to handle edit
+    function editBooking(bookingId) {
+      alert(`Edit booking with ID: ${bookingId}`);
+      // Implement the edit logic
+    }
+
+    // Function to delete a booking
+    function deleteBooking(bookingId) {
+      const index = bookings.findIndex((booking) => booking.id === bookingId);
+      if (index !== -1) {
+        $.ajax({
+          type: "delete",
+          url: "/api/slots/delete/" + bookingId,
+          headers: {
+            "accept": "application/json",
+            "Authorization": `Bearer ${localStorage.getItem('jwt_token')}`,
+          },
+          success: function (response) {
+            bookings.splice(index, 1); // Remove the booking
+            alert(`Booking with ID: ${bookingId} deleted.`);
+            // Refresh the modal content
+            const selectedDate = document.getElementById("slotDate").value;
+            openSlotModal(selectedDate);
+          }
+        });
+
+      }
+    }
+
+
+
+    function getUtcTime(date, time, timeZone) {
+      // Combine date and time into a single string
+      const dateTimeString = `${date}T${time}`;
+
+      // Create a Date object using the specified time zone
+      const localDate = new Date(
+        new Date(dateTimeString).toLocaleString("en-US", { timeZone })
+      );
+
+      // Convert to UTC time
+      const utcTime = new Date(localDate.toISOString());
+
+      return utcTime.toISOString().replace(/\.000Z$/, '+00:00');
+    }
+
+  </script>
+</body>
+
+</html>

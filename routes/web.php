@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('quickslot', function () {
+    return file_get_contents(public_path('host_quickslot.html'));
+});
 Route::get('login', function () {
     return file_get_contents(public_path('login.html'));
 });

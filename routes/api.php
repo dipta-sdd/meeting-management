@@ -44,7 +44,7 @@ Route::group([
     Route::get('read', [SlotController::class, 'read']);
     Route::get('read/{id}', [SlotController::class, 'read']);
     Route::post('update/{id}', [SlotController::class, 'update']);
-    Route::delete('delete/{id}', [SlotController::class, 'destroy']);
+    Route::delete('delete/{id}', [SlotController::class, 'delete']);
 });
 Route::group([
 
@@ -58,7 +58,7 @@ Route::group([
     Route::get('read', [RecurrentSlotController::class, 'read']);
     Route::get('read/{id}', [RecurrentSlotController::class, 'read']);
     Route::post('update/{id}', [RecurrentSlotController::class, 'update']);
-    Route::delete('delete/{id}', [RecurrentSlotController::class, 'destroy']);
+    Route::delete('delete/{id}', [RecurrentSlotController::class, 'delete']);
 });
 Route::group([
 
@@ -71,3 +71,4 @@ Route::group([
     Route::get('search/{name}', [GuestController::class, 'search_name']);
     Route::get('search', [GuestController::class, 'search_name']);
 });
+Route::get('search-slot/{id}', [GuestController::class, 'search_slot']);
