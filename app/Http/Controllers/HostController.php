@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\booking;
 use App\Models\recurrent;
 use App\Models\slot;
 use Illuminate\Http\Request;
@@ -22,7 +23,7 @@ class HostController extends Controller
     }
     public function notifications(Request $req)
     {
-        $slots = slot::selectRaw(' bookings.* , users.name as guest_name')
+        $slots = booking::selectRaw(' bookings.* , users.name as guest_name')
             ->where('host', auth()->user()->id)
             ->where('host_seen', null)
             ->join('users', 'bookings.guest', '=', 'users.id')
@@ -32,7 +33,9 @@ class HostController extends Controller
         }
         $slots = $slots->get();
 
-
+        booking::where('host', auth()->user()->id)
+            ->where('host_seen', null)
+            ->update(['host_seen' => false]);
         return response()->json($slots);
     }
     // public function one_time_slots(Request $request){

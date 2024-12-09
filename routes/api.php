@@ -84,4 +84,4 @@ Route::post('guest/book-slot', [GuestController::class, 'book_slot']);
 
 
 
-Route::get('hosts/notifications', [HostController::class, 'notifications']);
+Route::get('host/notifications', [HostController::class, 'notifications']);
