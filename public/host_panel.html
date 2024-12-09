@@ -350,9 +350,9 @@
 <body>
 
     <!-- Loader -->
-    <div id="loader" class="loader">
+    <!-- <div id="loader" class="loader">
         <div class="spinner"></div>
-    </div>
+    </div> -->
 
     <!-- ========================= Navbar =========================== -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -368,7 +368,6 @@
                     <button type="button" class="btn btn-primary me-2">
                         Notifications <span class="badge badge-light">4</span>
                     </button>
-                    <button type="button" class="btn btn-success" aria-expanded="false">Back</button>
                 </div>
 
                 <button id="username-btn" style="text-transform: capitalize;" name="username" type="button"
@@ -386,13 +385,9 @@
                         <a class="dropdown-item" href="host_update.html">Update</a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="logout.php">Logout</a>
+                        <button class="dropdown-item"
+                            onclick="localStorage.removeItem('jwt_token'); window.location.href = '/login';">Logout</button>
                     </li>
-                </ul>
-                <li><a class="dropdown-item" href="citizen_profile.php">Profile</a></li>
-                <li><a class="dropdown-item" href="host_change_pass.html">Change Password</a></li>
-                <li><a class="dropdown-item" href="host_update.html">Update</a></li>
-                <li><a class="dropdown-item" href="#" id="logout-btn">Logout</a></li>
                 </ul>
             </div>
         </div>
@@ -405,13 +400,13 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="text-center">
-                        <h3 class="servicepart__heading__h3">Welcome to Your dashboard Sudip</h3>
+                        <h3 class="servicepart__heading__h3">Welcome to Your dashboard</h3>
                     </div>
                 </div>
             </div>
             <div class="row mt-2 gy-4">
                 <div class="col-lg-3">
-                    <a href="/quickslot" target="_blank">
+                    <a href="/quickslot">
                         <div class="serviceitem">
                             <i class="fa fa-plus serviceitem__icon" aria-hidden="true"></i>
                             <h3 class="py-3 serviceitem__h3">QuickSlot</h3>
@@ -420,7 +415,7 @@
                     </a>
                 </div>
                 <div class="col-lg-3">
-                    <a href="certificate/index.php">
+                    <a href="/host_reslot.html">
                         <div class="serviceitem">
                             <i class="fa fa-calendar serviceitem__icon" aria-hidden="true"></i>
                             <h3 class="py-3 serviceitem__h3">Re-Slot</h3>
@@ -429,20 +424,20 @@
                     </a>
                 </div>
                 <div class="col-lg-3">
-                    <a href="./notification.php" target="_blank">
+                    <a href="./bookings.html">
                         <div class="serviceitem">
                             <i class="fa fa-check-circle serviceitem__icon" aria-hidden="true"></i>
-                            <h3 class="py-3 serviceitem__h3">Booked Slots</h3>
+                            <h3 class="py-3 serviceitem__h3">Created Slots</h3>
                             <p class="serviceitem__p">Check Your Booked Slots</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-lg-3">
-                    <a href="./nid_card.php">
+                    <a href="host_analysis.html">
                         <div class="serviceitem">
-                            <i class="fa fa-undo serviceitem__icon" aria-hidden="true"></i>
-                            <h3 class="py-3 serviceitem__h3">Previous Slots</h3>
-                            <p class="serviceitem__p">Check Your Previously Booked Slots</p>
+                            <i class="fa fa-line-chart serviceitem__icon" aria-hidden="true"></i>
+                            <h3 class="py-3 serviceitem__h3">Analysis Reports</h3>
+                            <p class="serviceitem__p">Check Your Slot activity heres</p>
                         </div>
                     </a>
                 </div>

@@ -407,10 +407,10 @@
           <button type="button" class="btn btn-primary me-2">
             Notifications <span class="badge badge-light">4</span>
           </button>
-          <button type="button" class="btn btn-success" aria-expanded="false">Back</button>
+          <button type="button" class="btn btn-success" onclick="window.location.href='host_panel.html';"
+            aria-expanded="false">Back</button>
         </div>
 
-        <button type="button" class="btn btn-success" aria-expanded="false"> Back </button>
       </div>
     </div>
   </nav>
@@ -614,6 +614,7 @@
           data: data,
           success: function (response) {
             console.log('Slots created:', response);
+            location.reload();
             alert('Slots created successfully!');
           },
           error: function (err) {

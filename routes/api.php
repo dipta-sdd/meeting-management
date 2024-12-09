@@ -35,7 +35,7 @@ Route::group(
 
 
         Route::post('/meetings/book', [BookingController::class, 'bookMeeting']);
-        Route::get('/meetings', [BookingController::class, 'getMeetings']);
+        Route::get('meetings', [BookingController::class, 'getMeetings']);
     }
 );
 
@@ -52,6 +52,7 @@ Route::group([
     Route::get('read/{id}', [SlotController::class, 'read']);
     Route::post('update/{id}', [SlotController::class, 'update']);
     Route::delete('delete/{id}', [SlotController::class, 'delete']);
+    Route::post('booking/{id}', [HostController::class, 'confirmBooking']);
 });
 Route::group([
 
@@ -79,3 +80,13 @@ Route::group([
     Route::get('search/{name}', [GuestController::class, 'search_name']);
     Route::get('search', [GuestController::class, 'search_name']);
 });
+Route::get('search-slot/{id}', [GuestController::class, 'search_slot']);
+Route::get('hosts/search/{name}', [GuestController::class, 'search_name']);
+Route::get('hosts/search', [GuestController::class, 'search_name']);
+Route::post('guest/book-slot', [GuestController::class, 'book_slot']);
+
+
+
+
+Route::get('host/notifications', [HostController::class, 'notifications']);
+Route::get('host/dashboard', [HostController::class, 'dashboard']);

@@ -22,6 +22,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css" />
+  <title>One time Slot</title>
   <style>
     /* Resetting default browser styles */
     html,
@@ -335,10 +336,9 @@
           <button type="button" class="btn btn-primary me-2">
             Notifications <span class="badge badge-light">4</span>
           </button>
-          <button type="button" class="btn btn-success" aria-expanded="false">Back</button>
+          <button type="button" class="btn btn-success" onclick="window.location.href='host_panel.html';"
+            aria-expanded="false">Back</button>
         </div>
-
-        <button type="button" class="btn btn-success" data-bs-toggle="dropdown" aria-expanded="false"> Back </button>
       </div>
     </div>s
   </nav>
@@ -570,7 +570,7 @@
                 </div>
                 <div>
                      
-                    <button class="btn btn-sm btn-danger" onclick="deleteBooking(${booking.id})">Delete</button>
+                    <button class="btn btn-sm btn-danger delete" data-target="${booking.id}" onclick="deleteBooking(${booking.id})">Delete</button>
                 </div>
             `;
               // <button class="btn btn-sm btn-warning me-2" onclick="editBooking(${booking.id})">Edit</button>
@@ -595,31 +595,36 @@
 
     // Placeholder function to handle edit
     function editBooking(bookingId) {
-      alert(`Edit booking with ID: ${bookingId}`);
       // Implement the edit logic
     }
 
     // Function to delete a booking
+    $(document).on('click', '.delete', function (e) {
+      e.preventDefault();
+      const bookingId = e.target.dataset.target;
+      // alert(bookingId);
+      deleteBooking(bookingId);
+    })
     function deleteBooking(bookingId) {
       const index = bookings.findIndex((booking) => booking.id === bookingId);
-      if (index !== -1) {
-        $.ajax({
-          type: "delete",
-          url: "/api/slots/delete/" + bookingId,
-          headers: {
-            "accept": "application/json",
-            "Authorization": `Bearer ${localStorage.getItem('jwt_token')}`,
-          },
-          success: function (response) {
-            bookings.splice(index, 1); // Remove the booking
-            alert(`Booking with ID: ${bookingId} deleted.`);
-            // Refresh the modal content
-            const selectedDate = document.getElementById("slotDate").value;
-            openSlotModal(selectedDate);
-          }
-        });
 
-      }
+      $.ajax({
+        type: "delete",
+        url: "/api/slots/delete/" + bookingId,
+        headers: {
+          "accept": "application/json",
+          "Authorization": `Bearer ${localStorage.getItem('jwt_token')}`,
+        },
+        success: function (response) {
+          bookings.splice(index, 1); // Remove the booking
+          alert(`Booking with ID: ${bookingId} deleted.`);
+          // Refresh the modal content
+          const selectedDate = document.getElementById("slotDate").value;
+          openSlotModal(selectedDate);
+        }
+      });
+
+
     }
 
 
@@ -646,7 +651,7 @@
 
       // Hide the loader and show the content
       loader.classList.add('hidden');
-      content.style.display = 'block';
+      // content.style.display = 'block';
     });
 
   </script>

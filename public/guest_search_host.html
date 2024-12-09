@@ -553,7 +553,7 @@
 
           $.map(res.slots, function (slot, indexOrKey) {
 
-
+            // if (!String(slot.v).startsWith('-')) {
             $('#results-container tbody').append(
               `     <tr>
             <td>${slot.day_name}</td>
@@ -569,7 +569,9 @@
             </td>
           </tr>`
             );
+            // }
           });
+
         }
       });
 

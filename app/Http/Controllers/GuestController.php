@@ -21,6 +21,13 @@ class GuestController extends Controller
     }
     public function search_slot(Request $request, $id)
     {
+        // this sql query is used to get the slots of a host and apply the recurrent rules to it
+        // the query is divided into two parts, the first one is the inner select that gets the slots
+        // and the recurrents rules for the host, the second part is the outer select that applies the recurrent rules to the slots
+        // the recurrent rules are applied by using the IF function to check if the start time of the slot is before the start time of the recurrent rule
+        // if it is, then the start time of the slot is used, otherwise the start time of the recurrent rule is used
+        // the same logic is applied to the end time of the slot
+        // the resulting query is a list of slots with their start and end times adjusted according to the recurrent rules
         $slots = DB::table(DB::raw('(select slots.id , slots.start, slots.end, slots.host, 
 IF(TIME(slots.start) < recurrents.start ,
 TIME(slots.start) , IF(TIME(slots.start) < recurrents.end , 
@@ -74,17 +81,23 @@ FROM slots LEFT JOIN recurrents on recurrents.day = DAYNAME(slots.start) and slo
             $final_slots[] = $slot;
         }
         $slots = $final_slots;
+        $final_slots = [];
         $maxVSlot = null;
         foreach ($slots as $slot) {
             if ($maxVSlot === null || $slot->v > $maxVSlot->v) {
                 $maxVSlot = $slot;
+            }
+            $v = $slot->v;
+            $v = (string) $slot->v;
+            if (!$v[0] == '-') {
+                $final_slots[] = $slot;
             }
         }
 
 
 
 
-        return response()->json(['slots' => $slots, 'maxVSlot' => $maxVSlot]);
+        return response()->json(['slots' => $final_slots, 'maxVSlot' => $maxVSlot]);
     }
 
     public function book_slot(Request $request)

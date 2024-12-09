@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\booking;
 use Illuminate\Http\Request;
 //use App\Models\Meeting; 
 use Illuminate\Support\Facades\Validator;
@@ -39,7 +40,17 @@ class BookingController extends Controller
         $userId = auth()->user()->id; // Assuming you have authentication set up
 
         // Retrieve meetings for the authenticated user
-        $meetings = Meeting::where('guest_id', $userId)->get();
+        if (auth()->user()->role == 'host') {
+            $meetings = booking::selectRaw('bookings.*, guests.name as guest_name, hosts.name as host_name')
+                ->leftJoin('users as guests', 'bookings.guest', '=', 'guests.id')
+                ->leftJoin('users as hosts', 'bookings.host', '=', 'hosts.id')
+                ->where('host', $userId)->get();
+        } else {
+            $meetings = booking::selectRaw('bookings.*, guests.name as guest_name, hosts.name as host_name')
+                ->leftJoin('users asguests', 'bookings.guest', '=', 'guests.id')
+                ->leftJoin('hosts as hosts', 'bookings.host', '=', 'hosts.id')->where('guest', $userId)->get();
+        }
+
 
         return response()->json($meetings);
     }
