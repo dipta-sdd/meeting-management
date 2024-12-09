@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return file_get_contents(public_path('index.html'));
 });
 Route::get('book', function () {
     return file_get_contents(public_path('guest_book_slot.html'));

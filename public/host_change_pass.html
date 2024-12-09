@@ -264,7 +264,9 @@
     }
 
     /* ============================= change__pass CSS ==================== */
+
     /* ================================= footer Part ===================== */
+
     #footerpart {
         background-color: var(--blue-colour);
         padding: 50px 50px 30px 50px;
@@ -323,87 +325,35 @@
         color: white;
     }
 
-    /* Loader styles */
-    .loader {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(255, 255, 255, 0.8);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 9999;
-    }
-
-    .spinner {
-        border: 5px solid #f3f3f3;
-        /* Light grey */
-        border-top: 5px solid #3498db;
-        /* Blue */
-        border-radius: 50%;
-        width: 50px;
-        height: 50px;
-        animation: spin 1s linear infinite;
-    }
-
-    @keyframes spin {
-        0% {
-            transform: rotate(0deg);
-        }
-
-        100% {
-            transform: rotate(360deg);
-        }
-    }
-
-    /* Hide loader after loading */
-    .hidden {
-        display: none;
-    }
-
     /* ================================= footer Part ===================== */
 </style>
 
 <body>
-
-    <!-- Loader -->
-    <div id="loader" class="loader">
-        <div class="spinner"></div>
-    </div>
-
     <!-- ========================= Navbar =========================== -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="/js/logout.js"></script>
     <nav class="navbar navbar-expand-lg customNav">
         <div class="container">
             <a class="navbar-brand" href="index.html">
                 <h2 class="text-white text-left">Meeting Management</h2>
             </a>
+
             <div class="btn-group">
                 <button id="username-btn" style="text-transform: capitalize;" name="username" type="button"
                     class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                     <!-- This will be dynamically updated with JavaScript -->
+
                 </button>
                 <ul class="dropdown-menu">
-                    <li>
-                        <a class="dropdown-item" href="host_update.html>Profile</a>
-                    </li>
-                    <li>
-                        <a class=" dropdown-item" href="host_change_pass.html">Change Password</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="host_update.html">Update</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="host_reslot.html">slot</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="logout.php">Logout</a>
-                    </li>
+                    <li><a class="dropdown-item" href="citizen_profile.php">Profile</a></li>
+                    <li><a class="dropdown-item" href="host_change_pass.html">Change Password</a></li>
+                    <li><a class="dropdown-item" href="host_update.html">Update</a></li>
+                    <li><a class="dropdown-item" href="#" id="logout-btn">Logout</a></li>
                 </ul>
             </div>
         </div>
     </nav>
+
     <!-- ========================= Navbar =========================== -->
 
     <!-- ========================= Change password =========================== -->
@@ -503,6 +453,7 @@
                             dropdownButton.textContent = data.name;
                         } else {
                             console.error('Unable to fetch user data.');
+                            window.location.href = "/login";
                         }
                     })
                     .catch(error => {

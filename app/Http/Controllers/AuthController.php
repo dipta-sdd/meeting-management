@@ -119,9 +119,14 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function logout()
+    public function logout(Request $request)
     {
-        $this->guard()->logout();
+        // Invalidate the user's session
+        Auth::logout();
+
+        // Optionally, you can also invalidate the token if you're using JWT
+        // This depends on your authentication setup
+        // For example, if you're using Laravel Passport, you might want to revoke the token
 
         return response()->json(['message' => 'Successfully logged out']);
     }

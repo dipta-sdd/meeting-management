@@ -474,7 +474,7 @@
     $.ajax({
       url: '/api/auth/me',
       type: 'GET',
-      headers: { 'Authorization': 'Bearer ' + localStorage.getItem('jwt_token') },
+      headers: { 'Authorization': 'Bearer ' + localStorage.getItem('jwt_jwt_token') },
       success: function (data) {
         $('#name').val(data.name);
         $('#email').val(data.email);

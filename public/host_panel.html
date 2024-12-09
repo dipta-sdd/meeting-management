@@ -355,6 +355,9 @@
     </div>
 
     <!-- ========================= Navbar =========================== -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script src="/js/logout.js"></script>
     <nav class="navbar navbar-expand-lg customNav">
         <div class="container">
             <a class="navbar-brand" href="index.html">
@@ -385,6 +388,11 @@
                     <li>
                         <a class="dropdown-item" href="logout.php">Logout</a>
                     </li>
+                </ul>
+                <li><a class="dropdown-item" href="citizen_profile.php">Profile</a></li>
+                <li><a class="dropdown-item" href="host_change_pass.html">Change Password</a></li>
+                <li><a class="dropdown-item" href="host_update.html">Update</a></li>
+                <li><a class="dropdown-item" href="#" id="logout-btn">Logout</a></li>
                 </ul>
             </div>
         </div>
@@ -514,6 +522,7 @@
                             dropdownButton.textContent = data.name;
                         } else {
                             console.error('Unable to fetch user data.');
+                            window.location.href = "/login";
                         }
                     })
                     .catch(error => {
@@ -522,16 +531,6 @@
             } else {
                 console.error('No token found. Please log in.');
             }
-        });
-
-        // Wait for the page to fully load
-        window.addEventListener('load', () => {
-            const loader = document.getElementById('loader');
-            const content = document.getElementById('content');
-
-            // Hide the loader and show the content
-            loader.classList.add('hidden');
-            content.style.display = 'block';
         });
 
     </script>

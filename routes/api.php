@@ -5,6 +5,7 @@ use App\Http\Controllers\GuestController;
 use App\Http\Controllers\HostController;
 use App\Http\Controllers\RecurrentSlotController;
 use App\Http\Controllers\SlotController;
+use App\Http\Controllers\BookingController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,13 +27,15 @@ Route::group(
         Route::get('me', [AuthController::class, 'me']);
         Route::post('register', [AuthController::class, 'register']);
         Route::put('change-password', [AuthController::class, 'changePassword']);
-
-
         // Route::get('profile', [AuthController::class, 'getProfile']);
         Route::post('update', [AuthController::class, 'updateProfile']);
         Route::get('/host/reslot', function () {
             return response()->file(public_path('host_reslot.html'));
         });
+
+
+        Route::post('/meetings/book', [BookingController::class, 'bookMeeting']);
+        Route::get('/meetings', [BookingController::class, 'getMeetings']);
     }
 );
 
@@ -76,12 +79,3 @@ Route::group([
     Route::get('search/{name}', [GuestController::class, 'search_name']);
     Route::get('search', [GuestController::class, 'search_name']);
 });
-Route::get('search-slot/{id}', [GuestController::class, 'search_slot']);
-Route::get('hosts/search/{name}', [GuestController::class, 'search_name']);
-Route::get('hosts/search', [GuestController::class, 'search_name']);
-Route::post('guest/book-slot', [GuestController::class, 'book_slot']);
-
-
-
-
-Route::get('host/notifications', [HostController::class, 'notifications']);
