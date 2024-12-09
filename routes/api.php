@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GuestController;
+use App\Http\Controllers\HostController;
 use App\Http\Controllers\RecurrentSlotController;
 use App\Http\Controllers\SlotController;
 use Illuminate\Http\Request;
@@ -66,7 +67,7 @@ Route::group([
 });
 Route::group([
 
-    'middleware' => ['api', 'is_host'],
+    'middleware' => ['api', 'is_guest'],
     'namespace' => 'App\Http\Controllers',
     'prefix' => 'guest'
 
@@ -76,3 +77,11 @@ Route::group([
     Route::get('search', [GuestController::class, 'search_name']);
 });
 Route::get('search-slot/{id}', [GuestController::class, 'search_slot']);
+Route::get('hosts/search/{name}', [GuestController::class, 'search_name']);
+Route::get('hosts/search', [GuestController::class, 'search_name']);
+Route::post('guest/book-slot', [GuestController::class, 'book_slot']);
+
+
+
+
+Route::get('hosts/notifications', [HostController::class, 'notifications']);

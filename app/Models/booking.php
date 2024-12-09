@@ -10,6 +10,8 @@ class booking extends Model
     protected $fillable = [
         'title',
         'guest',
-        'slot_id',
+        'host',
+        'start',
+        'end',
     ];
 }

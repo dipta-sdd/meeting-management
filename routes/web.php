@@ -5,6 +5,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('book', function () {
+    return file_get_contents(public_path('guest_book_slot.html'));
+});
+Route::get('search', function () {
+    return file_get_contents(public_path('guest_search_host.html'));
+});
 Route::get('quickslot', function () {
     return file_get_contents(public_path('host_quickslot.html'));
 });
@@ -24,4 +30,3 @@ Route::get('logout', function (Illuminate\Http\Request  $request) {
 // Route::get('/host/reslot', function () {
 //     return response()->file(public_path('host_reslot.html'));
 // })->middleware('auth'); // Ensure only authenticated users can access this route
-

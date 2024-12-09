@@ -5,41 +5,28 @@
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
     <!-- Font Awosome -->
-
     <link rel="stylesheet" data-purpose="Layout StyleSheet" title="Web Awesome"
         href="/css/app-wa-8106c2e05ae3cd7bfbb686f33d73a923.css?vsn=d" />
-
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css" />
-
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-thin.css" />
-
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-solid.css" />
-
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-regular.css" />
-
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-light.css" />
-
     <!-- Font link -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet" />
-
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-    <!-- <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script> -->
-
-    <link rel="shortcut icon" href="./images/icons8-good-quality-48.png" type="image/x-icon" />
+    <!-- font awosome -->
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css" />
-
     <title>Host Panel</title>
     <style>
         /* Resetting default browser styles */
-
         html,
         body,
         div,
@@ -143,7 +130,6 @@
         }
 
         /* Links */
-
         a {
             text-decoration: none;
         }
@@ -154,7 +140,6 @@
             --text-colur: #282938;
             --white-colour: #ffffff;
             --yellow-colour: #fcd980;
-
             --coco-colur: #ed9455;
             --light-coco-colur: #ffbb70;
             --more-light-coco-colur: #ffec9e;
@@ -167,7 +152,6 @@
         /* ============================= Custom CSS ==================== */
 
         /* ============================= Navbar CSS ==================== */
-
         .customNav {
             padding: 10px 0;
             background-color: var(--blue-colour);
@@ -208,7 +192,6 @@
         /* ============================= Navbar CSS ==================== */
 
         /* ============================= Log in CSS ==================== */
-
         #servicepart {
             padding: 50px 0;
             background-image: url(./photos/back.jpg);
@@ -217,7 +200,6 @@
             background-size: cover;
             background-color: rgba(0, 0, 0, 0.5);
             min-height: calc(100vh - 310px);
-
         }
 
         .servicepart__heading__h3 {
@@ -263,7 +245,6 @@
         /* ============================= Log in CSS ==================== */
 
         /* ================================= footer Part ===================== */
-
         #footerpart {
             background-color: var(--blue-colour);
             padding: 50px 50px 30px 50px;
@@ -322,12 +303,56 @@
             color: white;
         }
 
+        /* Loader styles */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .spinner {
+            border: 5px solid #f3f3f3;
+            /* Light grey */
+            border-top: 5px solid #3498db;
+            /* Blue */
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Hide loader after loading */
+        .hidden {
+            display: none;
+        }
+
         /* ================================= footer Part ===================== */
     </style>
 </head>
 
 <body>
-    <!-- <div id="warning-message">You are in Citizen Panel!</div> -->
+
+    <!-- Loader -->
+    <div id="loader" class="loader">
+        <div class="spinner"></div>
+    </div>
 
     <!-- ========================= Navbar =========================== -->
     <nav class="navbar navbar-expand-lg customNav">
@@ -335,42 +360,47 @@
             <a class="navbar-brand" href="index.html">
                 <h2 class="text-white text-left">Meeting Management</h2>
             </a>
-
             <div class="btn-group">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary me-2">
+                        Notifications <span class="badge badge-light">4</span>
+                    </button>
+                    <button type="button" class="btn btn-success" aria-expanded="false">Back</button>
+                </div>
+
                 <button id="username-btn" style="text-transform: capitalize;" name="username" type="button"
                     class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                     <!-- This will be dynamically updated with JavaScript -->
-
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="citizen_profile.php">Profile</a></li>
-                    <li><a class="dropdown-item" href="host_change_pass.html">Change Password</a></li>
-                    <li><a class="dropdown-item" href="citizen_update.php">Update</a></li>
-                    <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                    <li>
+                        <a class="dropdown-item" href="host_update.html">Profile</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="host_change_pass.html">Change Password</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="host_update.html">Update</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="logout.php">Logout</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
-
-
-
     <!-- ========================= Navbar =========================== -->
 
-    <!-- ========================= Log in =========================== -->
-
+    <!-- ========================= panel =========================== -->
     <section id="servicepart">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="text-center">
-                        <h3 class="servicepart__heading__h3">Welcome to Your
-                            dashboard Sudip</h3>
+                        <h3 class="servicepart__heading__h3">Welcome to Your dashboard Sudip</h3>
                     </div>
                 </div>
             </div>
-
-
-
             <div class="row mt-2 gy-4">
                 <div class="col-lg-3">
                     <a href="/quickslot" target="_blank">
@@ -381,7 +411,6 @@
                         </div>
                     </a>
                 </div>
-
                 <div class="col-lg-3">
                     <a href="certificate/index.php">
                         <div class="serviceitem">
@@ -391,7 +420,6 @@
                         </div>
                     </a>
                 </div>
-
                 <div class="col-lg-3">
                     <a href="./notification.php" target="_blank">
                         <div class="serviceitem">
@@ -401,7 +429,6 @@
                         </div>
                     </a>
                 </div>
-
                 <div class="col-lg-3">
                     <a href="./nid_card.php">
                         <div class="serviceitem">
@@ -414,11 +441,9 @@
             </div>
         </div>
     </section>
-
-    <!-- ========================= Log in =========================== -->
+    <!-- ========================= panel =========================== -->
 
     <!-- ======================== footer Part =========================== -->
-
     <footer id="footerpart">
         <div class="container">
             <div class="row">
@@ -427,34 +452,36 @@
                         <picture>
                             <img src="./images/2.png" alt class="footer__logo" />
                         </picture>
-                        <p class="mt-4 text-white footerTopLeft__p">We are
-                            always open to discuss and improve your online
-                            presence.</p>
+                        <p class="mt-4 text-white footerTopLeft__p">We are always open to discuss and improve your
+                            online presence.</p>
                     </div>
                 </div>
                 <div class="col-lg-7">
                     <div class="footerRight offset-lg-1">
-                        <h3 class="footerRight__h3 text-white">Lets
-                            Digitalize!</h3>
-                        <p class="footerRight__p text-white my-3">“The
-                            biggest part of our digital transformation is
-                            changing the way we think.” — Simeon
-                            Preston.</p>
+                        <h3 class="footerRight__h3 text-white">Lets Digitalize!</h3>
+                        <p class="footerRight__p text-white my-3">“The biggest part of our digital transformation is
+                            changing the way we think.” — Simeon Preston.</p>
                         <div class="icons text-white">
-                            <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="#">
+                                <i class="fa-brands fa-facebook"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa-brands fa-twitter"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa-brands fa-linkedin"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
-
     <!-- ======================== footer Part =========================== -->
 
-    <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
@@ -492,13 +519,17 @@
             }
         });
 
-    </script>
+        // Wait for the page to fully load
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            const content = document.getElementById('content');
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    -->
+            // Hide the loader and show the content
+            loader.classList.add('hidden');
+            content.style.display = 'block';
+        });
+
+    </script>
 </body>
 
 </html>

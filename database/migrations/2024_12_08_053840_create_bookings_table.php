@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('slot_id')->constrained('slots')->onDelete('cascade');
+            $table->timestamp('start')->nullable();
+            $table->timestamp('end')->nullable();
             $table->string('title');
             $table->foreignId('guest')->constrained('users')->onDelete('cascade');
+            $table->foreignId('host')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

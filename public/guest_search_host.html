@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Font Awosome -->
+  <link rel="stylesheet" data-purpose="Layout StyleSheet" title="Web Awesome"
+    href="/css/app-wa-8106c2e05ae3cd7bfbb686f33d73a923.css?vsn=d" />
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css" />
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-thin.css" />
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-solid.css" />
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-regular.css" />
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-light.css" />
+  <!-- Font link -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <!-- Fontawwosme link -->
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css" />
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+  <title>Search Host</title>
+  <style>
+    /* Resetting default browser styles */
+    html,
+    body,
+    div,
+    span,
+    applet,
+    object,
+    iframe,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    blockquote,
+    pre,
+    a,
+    abbr,
+    acronym,
+    address,
+    big,
+    cite,
+    code,
+    del,
+    dfn,
+    em,
+    ins,
+    kbd,
+    q,
+    s,
+    samp,
+    small,
+    strike,
+    strong,
+    sub,
+    sup,
+    tt,
+    var,
+    b,
+    u,
+    i,
+    center,
+    dl,
+    dt,
+    dd,
+    ol,
+    ul,
+    li,
+    fieldset,
+    form,
+    label,
+    legend,
+    table,
+    caption,
+    tbody,
+    tfoot,
+    thead,
+    tr,
+    th,
+    td,
+    article,
+    aside,
+    canvas,
+    details,
+    embed,
+    figure,
+    figcaption,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    output,
+    ruby,
+    section,
+    summary,
+    time,
+    mark,
+    audio,
+    video {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Box sizing */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    li,
+    ol,
+    ul {
+      list-style: none;
+    }
+
+    /* Global Typography */
+    body {
+      font-family: "Poppins", sans-serif;
+    }
+
+    /* Links */
+    a {
+      text-decoration: none;
+    }
+
+    :root {
+      --blue-colour: #1c1e53;
+      --gray-colour: #f4f6fc;
+      --text-colur: #282938;
+      --white-colour: #ffffff;
+      --yellow-colour: #fcd980;
+      --coco-colur: #ed9455;
+      --light-coco-colur: #ffbb70;
+      --more-light-coco-colur: #ffec9e;
+    }
+
+    video {
+      width: 100%;
+    }
+
+    /* ============================= Custom CSS ==================== */
+    /* ============================= Navbar CSS ==================== */
+    .customNav {
+      padding: 10px 0;
+      background-color: var(--blue-colour);
+      align-items: center;
+    }
+
+    .navbar__logo {
+      width: 300px;
+      height: auto;
+      text-align: left;
+    }
+
+    .customItem {
+      padding: 20px 10px;
+      font-size: 20px;
+      color: var(--blue-colour);
+      transition: ease-in-out 0.1s;
+    }
+
+    .custombtn {
+      padding: 7px 17px;
+      margin: 0 4px;
+      background-color: var(--blue-colour);
+      border: 2px solid var(--gray-colour);
+      outline: none;
+      border-radius: 15px;
+      transition: ease-in-out 0.2s;
+      color: white;
+      /* margin-bottom: 20px; */
+    }
+
+    .custombtn:hover {
+      background-color: var(--more-light-coco-colur);
+      color: black;
+      border: 2px solid --gray-colour;
+    }
+
+    /* ============================= Navbar CSS ==================== */
+
+    /* ============================= panel ==================== */
+    #servicepart {
+      background-image: url(./photos/back.jpg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      background-color: rgba(0, 0, 0, 0.5);
+      min-height: calc(100vh - 310px);
+    }
+
+    .servicepart__heading__h3 {
+      font-weight: 600;
+      font-size: 48px;
+      padding: 20px 0;
+    }
+
+    .serviceitem {
+      /* background-color: #fc3f00b6; */
+      background-color: #fc8e28c9;
+      padding: 60px 20px;
+      border-radius: 10px;
+      color: black;
+      text-align: center;
+      transition: ease-in-out 0.2s;
+      height: 320px;
+    }
+
+    .serviceitem:hover {
+      background-color: lightblue;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .serviceitem__icon {
+      font-size: 80px;
+      color: #000000;
+      text-align: center;
+    }
+
+    .serviceitem__h3 {
+      font-size: 30px;
+      font-weight: 500;
+    }
+
+    .serviceitem__p {
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--text-colur);
+      line-height: 28px;
+    }
+
+    /* ============================= Log in CSS ==================== */
+    /* ================================= footer Part ===================== */
+    #footerpart {
+      background-color: var(--blue-colour);
+      padding: 50px 50px 30px 50px;
+      /* position: fixed; */
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    }
+
+
+    #footerbottom {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    .footerTopLeft__p {
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .footerTopBottom h3 {
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    .footerTopBottom a {
+      color: #1c1e53;
+      margin-top: 20px;
+      font-weight: 400;
+      font-size: 14px;
+    }
+
+    .footer__logo {
+      height: 100px;
+    }
+
+    .footerLeftBottom {
+      background-color: var(--yellow-colour);
+      margin-top: 70px;
+      padding: 15px 10px;
+    }
+
+    .footerRight__h3 {
+      font-size: 48px;
+      font-weight: 600;
+    }
+
+    .footerRight__p {
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+    .icons {
+      margin-top: 10px;
+    }
+
+    .icons a {
+      padding: 10px;
+      color: white;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f4f4f4;
+    }
+
+    /* ================================= footer Part ===================== */
+  </style>
+</head>
+
+<body>
+  <!-- ========================= Navbar =========================== -->
+  <nav class="navbar navbar-expand-lg customNav">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <h2 class="text-white text-left">Meeting Management</h2>
+      </a>
+      <div class="btn-group">
+        <div class="btn-group">
+          <button type="button" class="btn btn-primary me-2">
+            Notifications <span class="badge badge-light">4</span>
+          </button>
+          <button type="button" class="btn btn-success" aria-expanded="false">Back</button>
+        </div>
+
+        <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          sudip </button>
+        <ul class="dropdown-menu">
+          <li>
+            <a class="dropdown-item" href="#">Profile</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="citizen_pass.php">Change Password</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="citizen_update.php">Update</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="logout.php">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- ========================= Navbar =========================== -->
+
+
+  <!-- ========================= Guest Panel =========================== -->
+  <section id="servicepart" class="mb-4">
+    <div class="row d-flex justify-content-center">
+      <div class="search-container p-4 rounded">
+        <div class="row g-3 align-items-end">
+          <div class="col-md-2">
+            <label for="start-date" class="form-label">Start Date</label>
+            <input id="start-date" type="date" class="form-control" placeholder="Start Date">
+          </div>
+          <div class="col-md-2">
+            <label for="end-date" class="form-label">End Date</label>
+            <input id="end-date" type="date" class="form-control" placeholder="End Date">
+          </div>
+          <div class="col-md-2">
+            <label for="start-time" class="form-label">Start Time</label>
+            <input id="start-time" type="time" class="form-control" placeholder="Start Time">
+          </div>
+          <div class="col-md-2">
+            <label for="end-time" class="form-label">End Time</label>
+            <input id="end-time" type="time" class="form-control" placeholder="End Time">
+          </div>
+          <div class="col-md-4">
+            <label for="search-name" class="form-label">Search by Name</label>
+            <input id="search-name" type="text" class="form-control" placeholder="Enter Name">
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-12 text-center">
+            <button id="search-button" class="custombtn w-25">Search</button>
+          </div>
+        </div>
+      </div>
+      <div class="container d-flex justify-content-center py-5 d-none" id="slot-booking-container-header">
+        <div class="card text-center">
+          <div class="card-header">
+            <h5 class="card-title mb-0">Slot Booking</h5>
+          </div>
+          <div class="card-body">
+            <h6 class="mb-3">Available Slots for <span class="fw-bold name">John Doe</span></h6>
+
+            <!-- Suggested Best Slot -->
+            <div class="alert best-slot" role="alert">
+              <strong>Suggested Best Slot:</strong> 12:00 PM - 01:00 PM
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="results-container" class="results-container container">
+        <div class="row">
+          <table class="table table-sm mt-4" style=" width: 90%; margin: 0 auto; background-color: #f9f9f9;">
+            <thead>
+              <tr style="background-color: #f1f1f1;">
+                <th>Day</th>
+                <th scope="col">Date</th>
+                <th scope="col">Start Time</th>
+                <th scope="col">End Time</th>
+                <th scope="col">Best Start Time</th>
+                <th scope="col">Best End Time</th>
+                <th scope="col">Total Free Hours</th>
+                <th scope="col">Action</th>
+
+              </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    </div>
+
+  </section>
+  <!-- =========================  Guest Panel  =========================== -->
+
+  <!-- ======================== footer Part =========================== -->
+  <footer id="footerpart">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5">
+          <div class="footerTopLeft">
+            <picture>
+              <img src="./images/2.png" alt class="footer__logo" />
+            </picture>
+            <p class="mt-4 text-white footerTopLeft__p">We are always open to discuss and improve your online presence.
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="footerRight offset-lg-1">
+            <h3 class="footerRight__h3 text-white">Lets Digitalize!</h3>
+            <p class="footerRight__p text-white my-3">“The biggest part of our digital transformation is changing the
+              way we think.” — Simeon Preston.</p>
+            <div class="icons text-white">
+              <a href="#">
+                <i class="fa-brands fa-facebook"></i>
+              </a>
+              <a href="#">
+                <i class="fa-brands fa-twitter"></i>
+              </a>
+              <a href="#">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a href="#">
+                <i class="fa-brands fa-linkedin"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- ======================== footer Part =========================== -->
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script>
+    const now = new Date();
+    const startDate = now.toISOString().split('T')[0];
+    const endDate = now.toISOString().split('T')[0];
+    const startTime = now.toTimeString().split(' ')[0];
+    const endTime = now.toTimeString().split(' ')[0];
+
+    document.getElementById('start-date').value = startDate;
+    document.getElementById('end-date').value = endDate;
+    document.getElementById('start-time').value = startTime;
+    document.getElementById('end-time').value = endTime;
+    $("#search-name").autocomplete({
+      source: '/api/hosts/search',
+      select: function (event, ui) {
+        // console.log(ui.item);
+        $('#search-name').attr('data-val', ui.item.id);
+        $('#slot-booking-container-header .name').text(ui.item.label);
+
+      }
+    });
+
+    document.getElementById('search-button').addEventListener('click', function () {
+      const hostName = document.getElementById('search-name').value;
+      const hostID = document.getElementById('search-name').getAttribute('data-val');
+      const startDate = document.getElementById('start-date').value;
+      const endDate = document.getElementById('end-date').value;
+      const startTime = document.getElementById('start-time').value;
+      const endTime = document.getElementById('end-time').value;
+
+      console.log(hostName, hostID, endDate, startDate, startTime, endTime);
+      const timeZone = localStorage.getItem('time_zone');
+      const startDateTime = new Date(Date.UTC(startDate.split('-')[0], startDate.split('-')[1] - 1, startDate.split('-')[2], startTime.split(':')[0], startTime.split(':')[1]));
+      const start = new Date(startDateTime.toLocaleString('en-US', { timeZone }));
+      const endDateTime = new Date(Date.UTC(endDate.split('-')[0], endDate.split('-')[1] - 1, endDate.split('-')[2], endTime.split(':')[0], endTime.split(':')[1]));
+      const end = new Date(endDateTime.toLocaleString('en-US', { timeZone }));
+      // Convert start and end to UTC
+      const startUTC = new Date(Date.UTC(start.getUTCFullYear(), start.getUTCMonth(), start.getUTCDate(), start.getUTCHours(), start.getUTCMinutes()));
+      const endUTC = new Date(Date.UTC(end.getUTCFullYear(), end.getUTCMonth(), end.getUTCDate(), end.getUTCHours(), end.getUTCMinutes()));
+
+      const startDateUtcString = `${startUTC.getUTCFullYear()}-${('0' + (startUTC.getUTCMonth() + 1)).slice(-2)}-${('0' + startUTC.getUTCDate()).slice(-2)}`;
+      const startTimeUtcString = `${('0' + startUTC.getHours()).slice(-2)}:${('0' + startUTC.getMinutes()).slice(-2)}:00`;
+
+      const endDateUtcString = `${endUTC.getUTCFullYear()}-${('0' + (endUTC.getUTCMonth() + 1)).slice(-2)}-${('0' + endUTC.getUTCDate()).slice(-2)}`;
+      const endTimeUtcString = `${('0' + endUTC.getHours()).slice(-2)}:${('0' + endUTC.getMinutes()).slice(-2)}:00`;
+      $.ajax({
+        type: "get",
+        url: "/api/search-slot/" + hostID,
+        data: {
+          startDate: startDateUtcString,
+          startTime: startTimeUtcString,
+          endDate: endDateUtcString,
+          endTime: endTimeUtcString
+        },
+
+
+        success: function (res) {
+          const timeZone = localStorage.getItem('time_zone');
+          $('#results-container tbody').empty();
+          if (res.maxVSlot) {
+            $('#slot-booking-container-header .best-slot').html(`
+            <strong>Suggested Best Slot:</strong> ${res.maxVSlot.startDate} , ${new Date('1970-01-01T' + res.maxVSlot.startTime + 'Z').toLocaleString([], { timeZone, hour: '2-digit', minute: '2-digit', hour12: true })} - ${new Date('1970-01-01T' + res.maxVSlot.endTime + 'Z').toLocaleString([], { timeZone, hour: '2-digit', minute: '2-digit', hour12: true })}
+          `);
+          }
+          else {
+            $('#slot-booking-container-header .best-slot').html(' No Suggested Best Slot');
+          }
+          $('#slot-booking-container-header').removeClass('d-none');
+
+          $.map(res.slots, function (slot, indexOrKey) {
+
+
+            $('#results-container tbody').append(
+              `     <tr>
+            <td>${slot.day_name}</td>
+            <td>${slot.startDate}</td>
+            
+            <td>${new Date('1970-01-01T' + slot.startTime + 'Z').toLocaleTimeString([], { timeZone: timeZone, hour: '2-digit', minute: '2-digit', hour12: true })}</td>
+            <td>${new Date('1970-01-01T' + slot.endTime + 'Z').toLocaleTimeString([], { timeZone: timeZone, hour: '2-digit', minute: '2-digit', hour12: true })}</td>
+            <td>${slot.bestStart ? new Date('1970-01-01T' + slot.bestStart + 'Z').toLocaleTimeString([], { timeZone: timeZone, hour: '2-digit', minute: '2-digit', hour12: true }) : ''}</td>
+            <td>${slot.bestEnd ? new Date('1970-01-01T' + slot.bestEnd + 'Z').toLocaleTimeString([], { timeZone: timeZone, hour: '2-digit', minute: '2-digit', hour12: true }) : ''}</td>
+            <td>${slot.v}</td>
+            <td>
+              <button class="btn btn-primary book-slot-btn" data-start-time="${slot.startTime}" data-end-time="${slot.endTime}" data-date="${slot.startDate}" data-host="${slot.host}" >Book Slot</button>
+            </td>
+          </tr>`
+            );
+          });
+        }
+      });
+
+      $(document).on('click', '.book-slot-btn', function (e) {
+        e.preventDefault();
+        alert('Booking slot...');
+        const startTime = $(this).data('start-time');
+        const endTime = $(this).data('end-time');
+        const date = $(this).data('date');
+        const host = $(this).data('host');
+        bookSlot(startTime, endTime, date, host);
+      })
+      function bookSlot(startTime, endTime, date, host) {
+        localStorage.setItem('selectedSlot', JSON.stringify({ startTime, endTime, date, host }));
+        const timeZone = localStorage.getItem('time_zone');
+
+
+
+
+        if (end < start) {
+          end.setDate(end.getDate() + 1);
+        }
+        $.ajax({
+          type: "post",
+          url: "/api/guest/book-slot",
+          data: {
+            start: convertToUTC(date, startTime, timeZone),
+            end: convertToUTC(date, endTime, timeZone),
+            host: host
+          },
+          headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('jwt_token')
+          },
+          success: function (response) {
+
+          }
+        });
+      }
+
+      function convertToUTC(dateStr, timeStr, timeZone) {
+        const combined = `${dateStr}T${timeStr}`;
+        const options = { timeZone: timeZone, year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+        const formatter = new Intl.DateTimeFormat('en-US', options);
+        const parts = formatter.formatToParts(new Date(combined));
+
+        const formattedDate = new Date(
+          `${parts.find(p => p.type === 'year').value}-${parts.find(p => p.type === 'month').value}-${parts.find(p => p.type === 'day').value}T` +
+          `${parts.find(p => p.type === 'hour').value}:${parts.find(p => p.type === 'minute').value}:${parts.find(p => p.type === 'second').value}`
+        );
+
+        const utcDate = new Date(formattedDate.getTime() + formattedDate.getTimezoneOffset() * 60000);
+
+        return utcDate.toISOString().replace('T', ' ').split('.')[0]; // Format as 'YYYY-MM-DD HH:MM:SS'
+      }
+    });
+  </script>
+</body>
+
+</html>
