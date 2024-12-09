@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-//use App\Models\Meeting; // Ensure you import the Meeting model
+//use App\Models\Meeting; 
 use Illuminate\Support\Facades\Validator;
 
 class BookingController extends Controller
@@ -35,7 +35,12 @@ class BookingController extends Controller
 
     public function getMeetings()
     {
-        $meetings = Meeting::all();
+        // Get the authenticated user's ID
+        $userId = auth()->user()->id; // Assuming you have authentication set up
+
+        // Retrieve meetings for the authenticated user
+        $meetings = Meeting::where('guest_id', $userId)->get();
+
         return response()->json($meetings);
     }
 }
